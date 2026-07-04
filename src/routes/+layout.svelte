@@ -10,7 +10,7 @@
 
 {#if data.user}
 	<div class="app-wrapper">
-		<Navbar {collapsed} ontoggle={() => (collapsed = !collapsed)} />
+		<Navbar ontoggle={() => (collapsed = !collapsed)} user={data.user} />
 		<div class="app-body">
 			<Aside {collapsed} />
 			<main class="main-content">

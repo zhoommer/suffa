@@ -1,10 +1,19 @@
 <script lang="ts">
 	import Aside from '$lib/components/sidebar.svelte';
+	import Navbar from '$lib/components/navbar.svelte';
 	let { children } = $props();
+	let collapsed = $state(false);
 </script>
 
-<Aside />
-{@render children()}
+<div class="app-wrapper">
+	<Navbar {collapsed} ontoggle={() => (collapsed = !collapsed)} />
+	<div class="app-body">
+		<Aside {collapsed} />
+		<main class="main-content">
+			{@render children()}
+		</main>
+	</div>
+</div>
 
 <style>
 	:global(:root) {
@@ -34,14 +43,39 @@
 	:global(*) {
 		margin: 0;
 		padding: 0;
+		box-sizing: border-box;
 	}
 
 	:global(body) {
 		font-family: system-ui, sans-serif;
-		box-sizing: border-box;
 		background-color: var(--color-bg-body);
-		font-style:
-			Times New Roman,
-			sans-serif;
+	}
+
+	.app-wrapper {
+		display: grid;
+		grid-template-rows: 60px 1fr;
+		height: 100vh;
+		overflow: hidden;
+	}
+
+	.app-body {
+		display: flex;
+		overflow: hidden;
+	}
+
+	.main-content {
+		flex: 1;
+		overflow-y: auto;
+		padding: 1.5rem;
+	}
+
+	@media (max-width: 768px) {
+		.app-body {
+			padding-bottom: 64px;
+		}
+
+		.main-content {
+			padding: 1rem;
+		}
 	}
 </style>

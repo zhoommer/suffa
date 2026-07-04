@@ -1,19 +1,26 @@
 <script lang="ts">
 	import Aside from '$lib/components/sidebar.svelte';
 	import Navbar from '$lib/components/navbar.svelte';
-	let { children } = $props();
+	import type { Snippet } from 'svelte';
+	import type { LayoutData } from './$types';
+
+	let { children, data }: { children: Snippet; data: LayoutData } = $props();
 	let collapsed = $state(false);
 </script>
 
-<div class="app-wrapper">
-	<Navbar {collapsed} ontoggle={() => (collapsed = !collapsed)} />
-	<div class="app-body">
-		<Aside {collapsed} />
-		<main class="main-content">
-			{@render children()}
-		</main>
+{#if data.user}
+	<div class="app-wrapper">
+		<Navbar {collapsed} ontoggle={() => (collapsed = !collapsed)} />
+		<div class="app-body">
+			<Aside {collapsed} />
+			<main class="main-content">
+				{@render children()}
+			</main>
+		</div>
 	</div>
-</div>
+{:else}
+	{@render children()}
+{/if}
 
 <style>
 	:global(:root) {

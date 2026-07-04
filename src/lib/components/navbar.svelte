@@ -13,9 +13,9 @@
 <header class="navbar">
 	<div class="navbar-left">
 		<button class="toggle-btn" onclick={ontoggle} aria-label="Toggle sidebar">
-			<Menu size={20} />
+			<Menu size={25} />
 		</button>
-		<span class="brand">Suffa</span>
+		<span class="brand_name">Suffa</span>
 	</div>
 	<div class="navbar-right">
 		<div class="avatar" aria-label="User profile"></div>
@@ -39,8 +39,8 @@
 		gap: 0.75rem;
 	}
 
-	.brand {
-		font-size: 1.1rem;
+	.brand_name {
+		font-size: 2.1rem;
 		font-weight: 700;
 		color: var(--color-primary-700);
 		letter-spacing: -0.02em;

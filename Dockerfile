@@ -10,7 +10,7 @@ RUN npm ci
 # Copy source and build
 COPY . .
 
-RUN npx prisma generate && \
+RUN DATABASE_URL=build npx prisma generate && \
     npx svelte-kit sync && \
     npx vite build
 

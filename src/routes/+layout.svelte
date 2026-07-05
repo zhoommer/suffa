@@ -28,6 +28,8 @@
 {/if}
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+
 	:global(:root) {
 		/* Background Colors */
 		--color-bg-body: #fafaf9;
@@ -61,6 +63,12 @@
 	:global(body) {
 		font-family: system-ui, sans-serif;
 		background-color: var(--color-bg-body);
+	}
+
+	:global(.brand_name) {
+		font-family: 'Lavishly Yours', cursive;
+		font-weight: 400;
+		font-style: normal;
 	}
 
 	.app-wrapper {

@@ -47,7 +47,7 @@
 		<button class="toggle-btn" onclick={ontoggle} aria-label="Toggle sidebar">
 			<Menu size={25} />
 		</button>
-		<span class="brand_name">Suffa</span>
+		<a href="/" class="brand_name">Suffa</a>
 		<input class="search-input" type="search" placeholder="Ara..." />
 	</div>
 
@@ -157,7 +157,6 @@
 
 	.brand_name {
 		font-size: 2.1rem;
-		font-weight: 700;
 		color: var(--color-primary-700);
 		letter-spacing: -0.02em;
 	}

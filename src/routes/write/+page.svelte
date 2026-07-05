@@ -21,12 +21,7 @@
 			Geri
 		</a>
 
-		<input
-			class="title-input"
-			bind:value={title}
-			placeholder="Başlık ekleyin..."
-			maxlength={120}
-		/>
+		<input class="title-input" bind:value={title} placeholder="Başlık ekleyin..." maxlength={120} />
 
 		<div class="write-actions">
 			<button class="btn-draft" onclick={saveDraft} disabled={saving}>
@@ -73,7 +68,9 @@
 		white-space: nowrap;
 		padding: 0.35rem 0.6rem;
 		border-radius: 6px;
-		transition: background 0.12s, color 0.12s;
+		transition:
+			background 0.12s,
+			color 0.12s;
 	}
 
 	.back-btn:hover {
@@ -115,7 +112,9 @@
 		font-weight: 500;
 		cursor: pointer;
 		border: none;
-		transition: background 0.12s, opacity 0.12s;
+		transition:
+			background 0.12s,
+			opacity 0.12s;
 	}
 
 	.btn-draft {

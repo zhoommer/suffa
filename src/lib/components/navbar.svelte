@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Menu, LogOut, User, ChevronDown } from '@lucide/svelte';
+	import { Menu, LogOut, User, ChevronDown, Bell, NotebookPen } from '@lucide/svelte';
 	import { authClient } from '$lib/auth-client';
 	import { goto } from '$app/navigation';
 
@@ -53,6 +53,13 @@
 	</div>
 
 	<div class="navbar-right">
+		<a href="/write" class="write-btn">
+			<NotebookPen />
+			Yazı Yaz
+		</a>
+		<button class="notification-btn">
+			<Bell size={20} />
+		</button>
 		<div class="user-menu" bind:this={menuEl}>
 			<button class="avatar-btn" onclick={() => (menuOpen = !menuOpen)} aria-label="User menu">
 				<div class="avatar">{initials}</div>
@@ -108,6 +115,39 @@
 		background-color: var(--color-bg-surface);
 		border-bottom: 1px solid var(--color-border-divider);
 		height: 100%;
+	}
+
+	.navbar-right {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.write-btn {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		color: var(--color-primary-600);
+		text-decoration: none;
+		transition: color 0.15s ease;
+	}
+
+	.write-btn:hover {
+		color: var(--color-primary-700);
+	}
+
+	.notification-btn {
+		border: none;
+		border-radius: 50%;
+		background: none;
+		color: var(--color-primary-600);
+		width: 36px;
+		height: 36px;
+		transition: background-color 0.15s ease;
+	}
+
+	.notification-btn:hover {
+		background-color: var(--color-primary-100);
 	}
 
 	.navbar-left {

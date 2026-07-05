@@ -1,0 +1,10 @@
+.git
+.svelte-kit
+node_modules
+build
+.env
+*.local
+.vscode
+.idea
+coverage
+prisma/migrations

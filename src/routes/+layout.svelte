@@ -1,19 +1,24 @@
 <script lang="ts">
 	import Aside from '$lib/components/sidebar.svelte';
 	import Navbar from '$lib/components/navbar.svelte';
+	import { page } from '$app/state';
 	import type { Snippet } from 'svelte';
 	import type { LayoutData } from './$types';
 
 	let { children, data }: { children: Snippet; data: LayoutData } = $props();
 	let collapsed = $state(false);
+
+	const isWritePage = $derived(page.url.pathname.startsWith('/write'));
 </script>
 
 {#if data.user}
 	<div class="app-wrapper">
-		<Navbar ontoggle={() => (collapsed = !collapsed)} user={data.user} />
+		<Navbar {collapsed} ontoggle={() => (collapsed = !collapsed)} user={data.user} />
 		<div class="app-body">
-			<Aside {collapsed} />
-			<main class="main-content">
+			{#if !isWritePage}
+				<Aside {collapsed} />
+			{/if}
+			<main class="main-content" class:full={isWritePage}>
 				{@render children()}
 			</main>
 		</div>
@@ -74,6 +79,13 @@
 		flex: 1;
 		overflow-y: auto;
 		padding: 1.5rem;
+	}
+
+	.main-content.full {
+		padding: 0;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
 	}
 
 	@media (max-width: 768px) {

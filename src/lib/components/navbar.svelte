@@ -12,9 +12,8 @@
 		ontoggle: () => void;
 		user: Record<string, unknown> | null;
 	} = $props();
-
-	let menuOpen = $state(false);
 	let menuEl = $state<HTMLDivElement | null>(null);
+	let menuOpen = $state(false);
 
 	const initials = $derived(
 		typeof user?.name === 'string'

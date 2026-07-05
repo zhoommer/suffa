@@ -18,3 +18,5 @@ services:
       timeout: 10s
       retries: 3
       start_period: 15s
+    extra_hosts:
+      - 'kc.homelab.local:192.168.1.43'

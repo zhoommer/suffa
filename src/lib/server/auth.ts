@@ -19,5 +19,12 @@ export const auth = betterAuth({
 				})
 			]
 		})
-	]
+	],
+	advanced: {
+		ipAddress: {
+			ipAddressHeaders: ['x-forwarded-for', 'x-real-ip'],
+			trustedProxies: ['127.0.0.1']
+		}
+	}
 });
+

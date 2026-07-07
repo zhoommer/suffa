@@ -10,7 +10,13 @@ RUN npm ci
 # Copy source and build
 COPY . .
 
-RUN DATABASE_URL=build npx prisma generate && \
+RUN DATABASE_URL=build \
+    CLIENT_ID=build \
+    CLIENT_SECRET=build \
+    ISSUER=build \
+    BETTER_AUTH_SECRET=build \
+    BETTER_AUTH_URL=build \
+    npx prisma generate && \
     npx svelte-kit sync && \
     npx vite build
 

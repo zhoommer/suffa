@@ -65,6 +65,11 @@
 		background-color: var(--color-bg-body);
 	}
 
+	:global(::selection) {
+		background-color: var(--color-primary-50);
+		color: var(--color-primary-950);
+	}
+
 	:global(.brand_name) {
 		font-family: 'Lavishly Yours', cursive;
 		font-weight: 400;

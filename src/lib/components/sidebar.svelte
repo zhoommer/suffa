@@ -1,14 +1,22 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { type ResolvedPathname } from '$app/types';
 	import { House, Library, User, ScrollText, Signal } from '@lucide/svelte';
+
+	interface NavItem {
+		id: number;
+		href: ResolvedPathname;
+		icon: typeof House;
+		label: string;
+	}
 
 	let { collapsed = false }: { collapsed?: boolean } = $props();
 
-	const nav = [
+	const nav: NavItem[] = [
 		{ id: 0, href: '/', icon: House, label: 'Anasayfa' },
 		{ id: 1, href: '/library', icon: Library, label: 'Kütüphane' },
 		{ id: 2, href: '/profile', icon: User, label: 'Profil' },
-		{ id: 3, href: '/hitories', icon: ScrollText, label: 'Hikayeler' },
+		{ id: 3, href: '/histories', icon: ScrollText, label: 'Hikayeler' },
 		{ id: 4, href: '/stats', icon: Signal, label: 'İstatistikler' }
 	];
 </script>
